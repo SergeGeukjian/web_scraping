@@ -7,47 +7,51 @@ library(twitteR)
 library(tm)
 
 # Set up your Twitter API credentials
-api_key <-  "SG5sB2urKKZLK7XtAI9ph3E8l"
-api_secret_key <- "LLYPBPYl9zDiz1lvssYW0fdt5C8F6laqTp01Dn9g85iXHmpHIG"
+#api_key <-  "SG5sB2urKKZLK7XtAI9ph3E8l"
+api_key <- "czFYWFdEUllvU2RxQlpBb05NZmU6MTpjaQ" #Client ID
+#api_secret_key <- "LLYPBPYl9zDiz1lvssYW0fdt5C8F6laqTp01Dn9g85iXHmpHIG"
+api_secret_key <- "Q2VFKtKjYZ4c7eVf7MO8CJheoxU8FdGn3_Daqma9Ulma5GcDoP" #Client Secret
 access_token <- "1622856438132383746-XoJjcJ8KmFOWjmOdyIcZKkg7bO02ZX"
 access_token_secret <- "4Zz6QpvLZIAfXJD3pEVuk6fDYoBVn2u7fjPcLn5vL0cNb"
 
 # Set up the Twitter API connection
 #rtweet
-token <- create_token(
-  app = "Scraper_SG",
-  consumer_key = api_key,
-  consumer_secret = api_secret_key,
-  access_token = access_token,
-  access_secret = access_token_secret
-)
+#token <- create_token(
+#  app = "Scraper_SG",
+#  consumer_key = api_key,
+#  consumer_secret = api_secret_key,
+#  access_token = access_token,
+#  access_secret = access_token_secret
+#)
 
-token
+#token
 
 #twitteR
-#setup_twitter_oauth(api_key, api_secret_key, access_token, access_token_secret)
+setup_twitter_oauth(api_key, api_secret_key, access_token, access_token_secret)
 
+t <- Sys.time()
 
 # Search for tweets
 #rtweet
-tweets <- search_tweets(
-  'from:dev_avocado',  # Your search query
+#tweets <- search_tweets(
+#  'weather',  # Your search query
+#  n = 3,          # Number of tweets to fetch
+#  include_rts = FALSE, 
+#  retryonratelimit = F,
+#  token = token
+#)
+
+Sys.time() -t
+head(tweets)
+#twitteR
+tweets <- searchTwitter(
+  '@realDonaldTrump',  # Your search query
   n = 3,          # Number of tweets to fetch
   include_rts = FALSE, 
   lang="en", 
   since="2023-11-01", 
   until="2023-11-20"
 )
-
-#twitteR
-#tweets <- searchTwitter(
-#  '@realDonaldTrump',  # Your search query
-#  n = 3,          # Number of tweets to fetch
-#  include_rts = FALSE, 
-#  lang="en", 
-#  since="2023-11-01", 
-#  until="2023-11-20"
-#)
 
 #today_trends <- getTrends(2364559)
 #tweets.df <- twListToDF(tweets)
