@@ -77,9 +77,8 @@ all_quotes <- do.call(rbind, quotes_list)
 all_quotes$tags <- gsub("\\s+", " ", all_quotes$tags)
 all_quotes$tags <- gsub("Tags:", "", all_quotes$tags)
 
-# Print the resulting data frame
-print(all_quotes)
-
+# Changing the authors link columns to hyperlinks
+all_quotes$author_link <- sprintf('<a href="%s">%s</a>', all_quotes$author_link, all_quotes$author)
 
 # UI ----------------------------------
 ui <- grid_page(
@@ -123,20 +122,66 @@ ui <- grid_page(
     card_body_fill(
       tabsetPanel(
         tabPanel(
-          title = "Inspirational Quotes"
-        ),
-        tabPanel(
-          title = "Life Quotes"
-        ),
-        tabPanel(
-          title = "Humor Quotes"
-        )))
+          title = "Inspirational Quotes",
+          status = "primary",
+          solidHeader = TRUE,
+          collapsible = TRUE,
+          width = 12,
+          height = 400,
+          DTOutput("quotes_table_output")
+        )#,
+        #tabPanel(
+        #  title = "Life Quotes"
+        #),
+        #tabPanel(
+        #  title = "Humor Quotes"
+        ))#)
     )
   )
 
+
+
 # Server ----------------------------------
 server <- function(input, output, session) {
-
+  # Assign temporary IDs to quotes
+  all_quotes$id <- seq_len(nrow(all_quotes))
+  
+  # Randomly select 10 quotes
+  random_quotes <- reactive({
+    set.seed(123)  # Set seed for reproducibility
+    sample_n(all_quotes, 10)
+  })
+  
+  ## # Render the divs
+  ## output$quotes_table_output <- renderDT({
+  ##   datatable(random_quotes(), options = list(pageLength = 5))
+  ## })
+  
+  # Render the table
+  output$quotes_table_output <- renderDataTable({
+    # Format the Author_Link column as HTML links
+    df$Author_Link <- sprintf('<a href="%s">%s</a>', df$Author_Link, df$Author)
+    
+    # Return the modified data frame
+    df
+  }, escape = FALSE)
+  
+  # Render the modals
+  observe({
+    for (i in seq_len(nrow(random_quotes()))) {
+      observeEvent(input[[paste0("view_quote_", random_quotes()[i, "id"])]], {
+        showModal(modalDialog(
+          title = random_quotes()[i, "author"],
+          div(
+            tags$p(random_quotes()[i, "quote"]),
+            tags$p("Tags: ", random_quotes()[i, "tags"]),
+            tags$a(href = random_quotes()[i, "author_link"], "Author Page", target = "_blank")
+          ),
+          easyClose = TRUE
+        ))
+      })
+    }
+  })
 }
 
 shinyApp(ui, server)
