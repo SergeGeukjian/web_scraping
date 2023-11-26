@@ -127,18 +127,18 @@ ui <- grid_page(
           title = "Inspirational Quotes",
           grid_container(
             layout = c(
-              "quote1"#,
-              #"quote2",
-              #"quote3",
-              #"quote4",
-              #"quote5"
+              "quote1",
+              "quote2",
+              "quote3",
+              "quote4",
+              "quote5"
             ),
             row_sizes = c(
-              "1fr"#,
-              #"1fr",
-              #"1fr",
-              #"1fr",
-              #"1fr"
+              "1fr",
+              "1fr",
+              "1fr",
+              "1fr",
+              "1fr"
             ),
             col_sizes = c(
               "1fr"
@@ -147,39 +147,53 @@ ui <- grid_page(
             ### First Grid Card-------------
             grid_card(
               area = "quote1",
-              grid_container(
-                layout = c(
-                  "quote1.1",
-                  "tags1",
-                  "author1"
-                ),
-                row_sizes = c(
-                  "1fr",
-                  "1fr",
-                  "1fr"
-                ),
-                col_sizes = c(
-                  "1fr"
-                ),
-                gap_size = "5px",
-                #### First Grid Card Quote-----------
-                grid_card(
-                  area = "quote1.1",
-                  HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>")
-                ),
-                grid_card(
-                  area = "tags1",
-                  HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>")
-                ),
-                grid_card(
-                  area = "author1",
-                  HTML("<span>
-                          'by '
-                       <small> 'Albert Einstein' </small>
-                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>'(about)'</a>
+              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
+              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
+              HTML("<span>
+                          by 
+                       <small> Albert Einstein </small>
+                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
                        </span>")
-                )
-              )
+            ),
+            grid_card(
+              area = "quote2",
+              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
+              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
+              HTML("<span>
+                          by 
+                       <small> Albert Einstein </small>
+                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
+                       </span>")
+            ),
+            grid_card(
+              area = "quote3",
+              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
+              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
+              HTML("<span>
+                          by 
+                       <small> Albert Einstein </small>
+                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
+                       </span>")
+            ),
+            grid_card(
+              area = "quote4",
+              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
+              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
+              HTML("<span>
+                          by 
+                       <small> Albert Einstein </small>
+                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
+                       </span>")
+            ),
+            grid_card(
+              area = "quote5",
+              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
+              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
+              HTML("<span>
+                          by 
+                       <small> Albert Einstein </small>
+                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
+                       </span>")
             )
           )
         ),
