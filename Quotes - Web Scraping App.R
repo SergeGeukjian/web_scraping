@@ -116,6 +116,14 @@ ui <- grid_page(
     card_body_fill(
       textInput("search", "Search in Quote:", ""),
       dateRangeInput("DOS", "Date Range (DOS):"),
+      pickerInput(
+        "source",
+        "Source: ",
+        choices = c("quotes.toscrape.com", "Twitter"), 
+        multiple = TRUE,
+        selected = "quotes.toscrape.com",
+        width = "100%"
+      ),
       actionButton("submitbudget", "Submit")
     )
   ),
@@ -170,7 +178,8 @@ ui <- grid_page(
                           by 
                        <small style='font-size: 16px;' font-family: sans-serif;> Albert Einstein </small>
                        <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
-                       </span>")
+                       </span>
+                   <span style='text-overflow: unset; font-size: 10px; color: rgb(29, 155, 240);'>Source: quotes.toscrape.com</span>")
             ),
             grid_card(
               area = "quote2",
@@ -190,7 +199,8 @@ ui <- grid_page(
                           by 
                        <small style='font-size: 16px;' font-family: sans-serif;> Thomas A. Edison </small>
                        <a href = 'https://quotes.toscrape.com/author/Thomas-A-Edison'>(about)</a>
-                       </span>")
+                       </span>
+                   <span style='text-overflow: unset; font-size: 10px; color: rgb(29, 155, 240);'>Source: quotes.toscrape.com</span>")
             ),
             grid_card(
               area = "quote3",
@@ -214,7 +224,8 @@ ui <- grid_page(
                           by 
                        <small style='font-size: 16px;' font-family: sans-serif;> Marilyn Monroe </small>
                        <a href = 'https://quotes.toscrape.com/author/Marilyn-Monroe'>(about)</a>
-                       </span>")
+                       </span>
+                   <span style='text-overflow: unset; font-size: 10px; color: rgb(29, 155, 240);'>Source: quotes.toscrape.com</span>")
             ),
             grid_card(
               area = "quote4",
@@ -242,7 +253,8 @@ ui <- grid_page(
                           by 
                        <small style='font-size: 16px;' font-family: sans-serif;> Marilyn Monroe </small>
                        <a href = 'https://quotes.toscrape.com/author/Marilyn-Monroe'>(about)</a>
-                       </span>")
+                       </span>
+                   <span style='text-overflow: unset; font-size: 10px; color: rgb(29, 155, 240);'>Source: quotes.toscrape.com</span>")
             ),
             grid_card(
               area = "quote5",
@@ -274,7 +286,8 @@ ui <- grid_page(
                           by 
                        <small style='font-size: 16px;' font-family: sans-serif;> Elie Wiesel </small>
                        <a href = 'https://quotes.toscrape.com/author/Elie-Wiesel'>(about)</a>
-                       </span>")
+                       </span>
+                   <span style='text-overflow: unset; font-size: 10px; color: rgb(29, 155, 240);'>Source: quotes.toscrape.com</span>")
             )
           )
         ),
@@ -296,9 +309,9 @@ ui <- grid_page(
               "tweet3"
             ),
             row_sizes = c(
-              "2.5fr",
+              "1.8fr",
               "1.3fr",
-              "1fr"
+              "2.3fr"
             ),
             col_sizes = c(
               "1fr"
@@ -328,7 +341,9 @@ ui <- grid_page(
                    <span>Watch on YouTube - </span>
                    <a style='color: rgb(29, 155, 240);' href='https://t.co/vplH801Shx'>https://t.co/vplH801Shx</a>
                    <br></br>
-                   <img src='tweet1.jpeg' style='width:564.8px;height:317.7px;'>
+                   <img src='tweet1.jpg' style='width:225px;height:129px;'>
+                   <br></br>
+                   <span style='text-overflow: unset; font-size: 10px; color: rgb(29, 155, 240);'>Source: Twitter</span>
                    </div>")
               ),
             grid_card(
@@ -344,32 +359,35 @@ ui <- grid_page(
                    <span style='color: rgb(29, 155, 240);'>#MicrosoftFabric</span>
                    <span>demos of data mirroring, Copilot updates and much more!</span>
                    <br></br>
-                   <a href = 'https://youtu.be/fz5fBgww0rE'><img src='tweet2.png' style='width:505px;height:121px;'></a>
+                   <a href = 'https://youtu.be/fz5fBgww0rE'><img src='tweet2.png' style='width:404px;height:97px;'></a>
+                   <br></br>
+                   <span style='text-overflow: unset; font-size: 10px; color: rgb(29, 155, 240);'>Source: Twitter</span>
                    </div>")
             ),
             grid_card(
               area = "tweet3",
-              HTML("<em style='font-size: 16px;' font-family: sans-serif;>
-                   Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.
-                   </em>"),
-              HTML("<div class='tags'>
-            Tags:
-            <meta class='keywords' itemprop='keywords' content='edison,failure,inspirational,paraphrased'> 
-            
-            <a class='tag'  href='https://quotes.toscrape.com/edison/page/1/'>edison</a>
-            
-            <a class='tag' href='https://quotes.toscrape.com/tag/failure/page/1/'>failure</a>
-            
-            <a class='tag' href='https://quotes.toscrape.com/tag/inspirational/page/1/'>inspirational</a>
-            
-            <a class='tag' href='https://quotes.toscrape.com/tag/paraphrased/page/1/'>paraphrased</a>
-            
-        </div>"),
-              HTML("<span style='font-size: 16px;' font-family: sans-serif;>
-                          by 
-                       <small style='font-size: 16px;' font-family: sans-serif;> Marilyn Monroe </small>
-                       <a href = 'https://quotes.toscrape.com/author/Marilyn-Monroe'>(about)</a>
-                       </span>")
+              HTML("<div>
+                   <span style='text-overflow: unset;'><strong>Alex Power|s|</strong></span>
+                   <span style='text-overflow: unset; font-size: 10px; color: #5f6368;'>@notaboutthecell</span>
+                   <span style='text-overflow: unset; font-size: 10px; color: #5f6368;'> . May 2, 2020</span>
+                   </div>"),
+              HTML("<div>
+                   <span>30 Days. 30</span>
+                   <span style='color: rgb(29, 155, 240);'>#PowerQuery</span>
+                   <span>Query Folding Challenges. Subscribe to stay up to date, share your own solutions using the hashtag</span>
+                   <span style='color: rgb(29, 155, 240);'>#30DQUERY</span>
+                   <br></br>
+                   <span>YouTube:</span>
+                   <a style='color: rgb(29, 155, 240);' href='https://www.youtube.com/playlist?list=PLKW7XPyNDgRCorKNS1bfZoAO3YSIAVz3N'>https://www.youtube.com/playlist?list=PLKW7XPyNDgRCorKNS1bfZoAO3YSIAVz3N</a>
+                   <br></br>
+                   <span>Note: There's no one right answer, but there is a wrong one, don't break the fold!</span>
+                   <br></br>
+                   <span style='color: rgb(29, 155, 240);'>#PowerBi #Excel</span>
+                   <br></br>
+                   <img src='tweet3.png' style='width:340px;height:192px;'>
+                   <br></br>
+                   <span style='text-overflow: unset; font-size: 10px; color: rgb(29, 155, 240);'>Source: Twitter</span>
+                   </div>")
             )
           )
         )))
