@@ -77,8 +77,10 @@ all_quotes <- do.call(rbind, quotes_list)
 all_quotes$tags <- gsub("\\s+", " ", all_quotes$tags)
 all_quotes$tags <- gsub("Tags:", "", all_quotes$tags)
 
-# Changing the authors link columns to hyperlinks
-all_quotes$author_link <- sprintf('<a href="%s">%s</a>', all_quotes$author_link, all_quotes$author)
+## # Changing the authors link columns to hyperlinks
+## all_quotes$author_link <- sprintf('<a href="%s">%s</a>', all_quotes$author_link, all_quotes$author)
+
+#write_csv(all_quotes, "C:\\Users\\s.geukjian\\Desktop\\all_quotes.csv")
 
 # UI ----------------------------------
 ui <- grid_page(
@@ -144,64 +146,232 @@ ui <- grid_page(
               "1fr"
             ),
             gap_size = "5px",
-            ### First Grid Card-------------
             grid_card(
               area = "quote1",
-              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
-              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
-              HTML("<span>
+              HTML("<em style='font-size: 16px;' font-family: sans-serif;>
+                   There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.
+                   </em>"),
+              HTML("<div class='tags'>
+            Tags:
+            <meta class='keywords' itemprop='keywords' content='inspirational,life,live,miracle,miracles'> 
+            
+            <a class='tag'  href='https://quotes.toscrape.com/inspirational/page/1/'>inspirational</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/life/page/1/'>life</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/live/page/1/'>live</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/miracle/page/1/'>miracle</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/miracles/page/1/'>miracles</a>
+            
+        </div>"),
+              HTML("<span style='font-size: 16px;' font-family: sans-serif;>
                           by 
-                       <small> Albert Einstein </small>
+                       <small style='font-size: 16px;' font-family: sans-serif;> Albert Einstein </small>
                        <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
                        </span>")
             ),
             grid_card(
               area = "quote2",
-              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
-              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
-              HTML("<span>
+              HTML("<em style='font-size: 16px;' font-family: sans-serif;>
+              I have not failed. I've just found 10,000 ways that won't work.
+                   </em>"),
+              HTML("<div class='tags'>
+            Tags:
+            <meta class='keywords' itemprop='keywords' content='be-yourself,inspirational'> 
+            
+            <a class='tag'  href='https://quotes.toscrape.com/be-yourself/page/1/'>be-yourself</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/inspirational/page/1/'>inspirational</a>
+            
+        </div>"),
+              HTML("<span style='font-size: 16px;' font-family: sans-serif;>
                           by 
-                       <small> Albert Einstein </small>
-                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
+                       <small style='font-size: 16px;' font-family: sans-serif;> Thomas A. Edison </small>
+                       <a href = 'https://quotes.toscrape.com/author/Thomas-A-Edison'>(about)</a>
                        </span>")
             ),
             grid_card(
               area = "quote3",
-              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
-              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
-              HTML("<span>
+              HTML("<em style='font-size: 16px;' font-family: sans-serif;>
+                   Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.
+                   </em>"),
+              HTML("<div class='tags'>
+            Tags:
+            <meta class='keywords' itemprop='keywords' content='edison,failure,inspirational,paraphrased'> 
+            
+            <a class='tag'  href='https://quotes.toscrape.com/edison/page/1/'>edison</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/failure/page/1/'>failure</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/inspirational/page/1/'>inspirational</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/paraphrased/page/1/'>paraphrased</a>
+            
+        </div>"),
+              HTML("<span style='font-size: 16px;' font-family: sans-serif;>
                           by 
-                       <small> Albert Einstein </small>
-                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
+                       <small style='font-size: 16px;' font-family: sans-serif;> Marilyn Monroe </small>
+                       <a href = 'https://quotes.toscrape.com/author/Marilyn-Monroe'>(about)</a>
                        </span>")
             ),
             grid_card(
               area = "quote4",
-              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
-              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
-              HTML("<span>
+              HTML("<em style='font-size: 16px;' font-family: sans-serif;>
+                   This life is what you make it. No matter what, you're going to mess up sometimes, it's a universal truth. But the good part is you get to decide how you're going to mess it up. Girls will be your friends - they'll act like it anyway. But just remember, some come, some go. The ones that stay with you through everything - they're your true best friends. Don't let go of them. Also remember, sisters make the best friends in the world. As for lovers, well, they'll come and go too. And baby, I hate to say it, most of them - actually pretty much all of them are going to break your heart, but you can't give up because if you give up, you'll never find your soulmate. You'll never find that half who makes you whole and that goes for everything. Just because you fail once, doesn't mean you're gonna fail at everything. Keep trying, hold on, and always, always, always believe in yourself, because if you don't, then who will, sweetie? So keep your head high, keep your chin up, and most importantly, keep smiling, because life's a beautiful thing and there's so much to smile about.
+                   </em>"),
+              HTML("<div class='tags'>
+            Tags:
+            <meta class='keywords' itemprop='keywords' content='friends,heartbreak,inspirational,life,love,sisters'> 
+            
+            <a class='tag'  href='https://quotes.toscrape.com/friends/page/1/'>friends</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/heartbreak/page/1/'>heartbreak</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/inspirational/page/1/'>inspirational</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/life/page/1/'>life</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/love/page/1/'>love</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/sisters/page/1/'>sisters</a>
+            
+        </div>"),
+              HTML("<span style='font-size: 16px;' font-family: sans-serif;>
                           by 
-                       <small> Albert Einstein </small>
-                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
+                       <small style='font-size: 16px;' font-family: sans-serif;> Marilyn Monroe </small>
+                       <a href = 'https://quotes.toscrape.com/author/Marilyn-Monroe'>(about)</a>
                        </span>")
             ),
             grid_card(
               area = "quote5",
-              HTML("<em style='font-size: 12px;'>This is the first quote of this page</em>"),
-              HTML("<em style='font-size: 12px;'>Inspirational Love Friends</em>"),
-              HTML("<span>
+              HTML("<em style='font-size: 16px;' font-family: sans-serif;>
+                   The opposite of love is not hate, it's indifference. The opposite of art is not ugliness, it's indifference. The opposite of faith is not heresy, it's indifference. And the opposite of life is not death, it's indifference.
+                   </em>"),
+              HTML("<div class='tags'>
+            Tags:
+            <meta class='keywords' itemprop='keywords' content='activism apathy hate indifference inspirational love opposite philosophy'> 
+            
+            <a class='tag'  href='https://quotes.toscrape.com/activism/page/1/'>activism</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/apathy/page/1/'>apathy</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/hate/page/1/'>hate</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/indifference/page/1/'>indifference</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/inspirational/page/1/'>inspirational</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/love/page/1/'>love</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/opposite/page/1/'>opposite</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/philosophy/page/1/'>philosophy</a>
+            
+        </div>"),
+              HTML("<span style='font-size: 16px;' font-family: sans-serif;>
                           by 
-                       <small> Albert Einstein </small>
-                       <a href = 'https://quotes.toscrape.com/author/Albert-Einstein'>(about)</a>
+                       <small style='font-size: 16px;' font-family: sans-serif;> Elie Wiesel </small>
+                       <a href = 'https://quotes.toscrape.com/author/Elie-Wiesel'>(about)</a>
                        </span>")
             )
           )
         ),
+        ## Second Tab - Life Quotes --------------
         tabPanel(
           title = "Life Quotes"
         ),
+        ## Third Tab - Humor Quotes --------------
         tabPanel(
           title = "Humor Quotes"
+        ),
+        ## Fourth Tab - Twitter Example --------------
+        tabPanel(
+          title = "Twitter Demo",
+          grid_container(
+            layout = c(
+              "tweet1",
+              "tweet2",
+              "tweet3"
+            ),
+            row_sizes = c(
+              "2.5fr",
+              "1.3fr",
+              "1fr"
+            ),
+            col_sizes = c(
+              "1fr"
+            ),
+            gap_size = "16px",
+            grid_card(
+              area = "tweet1",
+              HTML("<div>
+                   <span style='text-overflow: unset;'><strong>Guy In A Cube</strong></span>
+                   <span style='text-overflow: unset; font-size: 10px; color: #5f6368;'>@GuyInACube</span>
+                   <span style='text-overflow: unset; font-size: 10px; color: #5f6368;'> . Jun 8</span>
+                   </div>"),
+              
+              HTML("<div>
+                   <span>We look deeper at</span>
+                   <span style='color: rgb(29, 155, 240);'>#DataActivator</span>
+                   <span>in</span>
+                   <span style='color: rgb(29, 155, 240);'>#MicrosoftFabric</span>
+                   <span>with</span>
+                   <span style='color: rgb(29, 155, 240);'>@Will_MI77</span>
+                   <span>He shows us how to work with real time data and also how you can leverage</span>
+                   <span style='color: rgb(29, 155, 240);'>#PowerAutomate</span>
+                   <span>from</span>
+                   <span style='color: rgb(29, 155, 240);'>#PowerPlatform</span>
+                   <span>to take action</span>
+                   <br></br>
+                   <span>Watch on YouTube - </span>
+                   <a style='color: rgb(29, 155, 240);' href='https://t.co/vplH801Shx'>https://t.co/vplH801Shx</a>
+                   <br></br>
+                   <img src='tweet1.jpeg' style='width:564.8px;height:317.7px;'>
+                   </div>")
+              ),
+            grid_card(
+              area = "tweet2",
+              HTML("<div>
+                   <span style='text-overflow: unset;'><strong>Nellie Gustafsson</strong></span>
+                   <span style='text-overflow: unset; font-size: 10px; color: #5f6368;'>@Nelliegson</span>
+                   <span style='text-overflow: unset; font-size: 10px; color: #5f6368;'> . Nov 15</span>
+                   </div>"),
+              
+              HTML("<div>
+                   <span>Don't miss this video full of</span>
+                   <span style='color: rgb(29, 155, 240);'>#MicrosoftFabric</span>
+                   <span>demos of data mirroring, Copilot updates and much more!</span>
+                   <br></br>
+                   <a href = 'https://youtu.be/fz5fBgww0rE'><img src='tweet2.png' style='width:505px;height:121px;'></a>
+                   </div>")
+            ),
+            grid_card(
+              area = "tweet3",
+              HTML("<em style='font-size: 16px;' font-family: sans-serif;>
+                   Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.
+                   </em>"),
+              HTML("<div class='tags'>
+            Tags:
+            <meta class='keywords' itemprop='keywords' content='edison,failure,inspirational,paraphrased'> 
+            
+            <a class='tag'  href='https://quotes.toscrape.com/edison/page/1/'>edison</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/failure/page/1/'>failure</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/inspirational/page/1/'>inspirational</a>
+            
+            <a class='tag' href='https://quotes.toscrape.com/tag/paraphrased/page/1/'>paraphrased</a>
+            
+        </div>"),
+              HTML("<span style='font-size: 16px;' font-family: sans-serif;>
+                          by 
+                       <small style='font-size: 16px;' font-family: sans-serif;> Marilyn Monroe </small>
+                       <a href = 'https://quotes.toscrape.com/author/Marilyn-Monroe'>(about)</a>
+                       </span>")
+            )
+          )
         )))
     )
   )
